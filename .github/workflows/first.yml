@@ -15,4 +15,5 @@ jobs:
          run: |
            ls -ltr /
            ifconfig -a
+           docker version
       
