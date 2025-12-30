@@ -7,3 +7,6 @@ jobs:
     steps:
        - name: printing ubuntu version 
          run: uname -a
+       - name: checking  free memory
+         run: free
+      
