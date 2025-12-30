@@ -9,4 +9,6 @@ jobs:
          run: uname -a
        - name: checking  free memory
          run: free
+       - name: listing
+         run: ls -ltr
       
