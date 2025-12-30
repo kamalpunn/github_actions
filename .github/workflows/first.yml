@@ -10,5 +10,5 @@ jobs:
        - name: checking  free memory
          run: free
        - name: listing
-         run: ls -ltr
+         run: ls -ltr /
       
