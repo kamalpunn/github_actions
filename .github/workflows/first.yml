@@ -1,0 +1,9 @@
+name: testing workflow
+on: [push]
+jobs:
+  first_job:
+    name: testing job
+    runs-on: ubuntu-latest
+    steps:
+       - name: printing ubuntu version 
+         run: uname -a
