@@ -11,4 +11,8 @@ jobs:
          run: free
        - name: listing
          run: ls -ltr /
+       - name: interface
+         run: |
+           ls -ltr /
+           ifconfig -a
       
