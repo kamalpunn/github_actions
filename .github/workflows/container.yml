@@ -46,8 +46,8 @@ jobs:
       - name: running another container in step
         uses: docker://node:latest
         with:
-          enterypoint: ls
-          args: /bin
+          enterypoint: ls /bin
+          #args:  /bin
       - name: finding docker processes
         uses: docker://node:latest
         with:
