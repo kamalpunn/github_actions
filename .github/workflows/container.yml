@@ -53,10 +53,10 @@ jobs:
         with:
           enterypoint: ps
           args: " -aef"
-    container: 
-      image: node:latest
-      options: --network mynet 
-      env:
-        name: kamal
-        age: 56
-        salary: nothing
+    #container: 
+    #  image: node:latest
+    #  options: --network mynet 
+    #  env:
+    #    name: kamal
+    #    age: 56
+    #    salary: nothing
