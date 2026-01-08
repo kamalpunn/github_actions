@@ -51,7 +51,7 @@ jobs:
       - name: finding docker processes
         uses: docker://node:latest
         with:
-          entrypoint: ps -aef
+          entrypoint: free
           #args: -aef
     #container: 
     #  image: node:latest
