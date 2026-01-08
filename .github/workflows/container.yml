@@ -47,12 +47,12 @@ jobs:
         uses: docker://node:latest
         with:
           enterypoint: ls
-          args: -ltr /bin
+          #args: -ltr /bin
       - name: finding docker processes
         uses: docker://node:latest
         with:
           enterypoint: ps
-          args: -aef
+          #args: -aef
     #container: 
     #  image: node:latest
     #  options: --network mynet 
