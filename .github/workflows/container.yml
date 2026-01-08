@@ -49,13 +49,13 @@ jobs:
           docker version
           docker ps -a
       - name: running another container in step
-        uses:  docker://node:latest
+        uses: docker://node:latest
         with:
           enterypoint: ls
           args: " -ltr /bin"
       - name: finding docker processes
-        uses:  docker://node:latest
+        uses: docker://node:latest
         with:
-          enterypoint: docker ps
-          args: " -a"
+          enterypoint: ps
+          args: " -aef"
 
