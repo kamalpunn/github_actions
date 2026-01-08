@@ -19,23 +19,8 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    container: 
-      image: node:latest
-      options: --network mynet 
-      env:
-        name: kamal
-        age: 56
-        salary: nothing
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
-      - name: file listing after checkout
-        run: |
-          pwd
-          ls -ltr
-
       # Runs a single command using the runners shell
+    steps:
       - name: show bridge network
         run: docker network ls
       - name: Run a one-line script
@@ -43,6 +28,7 @@ jobs:
       - name: create a bridge network
         run: |
           docker network create -d bridge mynet
+          docker network ls
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
@@ -51,6 +37,12 @@ jobs:
           df 
           docker version
           docker ps -a
+      - uses: actions/checkout@v4
+      - name: file listing after checkout
+        run: |
+          pwd
+          ls -ltr
+
       - name: running another container in step
         uses: docker://node:latest
         with:
@@ -61,4 +53,10 @@ jobs:
         with:
           enterypoint: ps
           args: " -aef"
-
+    container: 
+      image: node:latest
+      options: --network mynet 
+      env:
+        name: kamal
+        age: 56
+        salary: nothing
