@@ -53,9 +53,9 @@ jobs:
         with:
           enterypoint: ps -aef
           #args: -aef
-    container: 
-      image: node:latest
-      env:
-        name: kamal
-        age: 56
-        salary: nothing
+    #container: 
+    #  image: node:latest
+    #  env:
+    #    name: kamal
+    #    age: 56
+    #    salary: nothing
