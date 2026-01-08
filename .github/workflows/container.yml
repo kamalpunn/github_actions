@@ -46,12 +46,12 @@ jobs:
       - name: running another container in step
         uses: docker://node:latest
         with:
-          enterypoint: ls /bin
+          entrypoint: df
           #args:  /bin
       - name: finding docker processes
         uses: docker://node:latest
         with:
-          enterypoint: ps -aef
+          entrypoint: ps -aef
           #args: -aef
     #container: 
     #  image: node:latest
