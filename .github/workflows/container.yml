@@ -47,16 +47,15 @@ jobs:
         uses: docker://node:latest
         with:
           enterypoint: ls
-          #args: -ltr /bin
+          args: /bin
       - name: finding docker processes
         uses: docker://node:latest
         with:
-          enterypoint: ps
+          enterypoint: ps -aef
           #args: -aef
-    #container: 
-    #  image: node:latest
-    #  options: --network mynet 
-    #  env:
-    #    name: kamal
-    #    age: 56
-    #    salary: nothing
+    container: 
+      image: node:latest
+      env:
+        name: kamal
+        age: 56
+        salary: nothing
