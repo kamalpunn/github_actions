@@ -21,11 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: node:latest
+      options: --network mynet 
       env:
         name: kamal
         age: 56
         salary: nothing
-      options: --network bridge 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -40,6 +40,9 @@ jobs:
         run: docker network ls
       - name: Run a one-line script
         run: echo Hello, world!
+      - name: create a bridge network
+        run: |
+          docker network create -d bridge mynet
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
