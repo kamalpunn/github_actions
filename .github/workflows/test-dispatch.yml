@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: TEST DISPATCJ CI
+name: TEST DISPATCH JOB CI
 
 # Controls when the workflow will run
 on: 
@@ -94,5 +94,5 @@ jobs:
     steps:
       - name: printing value from build-job"
         run: |
-          echo "output1: ${{needs.build-job.output.output1}}"
-          echo "output2: ${{needs.build-job.output.output2}}"
+          echo "output1: ${{needs.build-job.outputs.output1}}"
+          echo "output2: ${{needs.build-job.outputs.output2}}"
