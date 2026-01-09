@@ -35,6 +35,7 @@ jobs:
     outputs:
         output1: ${{ steps.step1.outputs.test1 }}
         output2: ${{ steps.step2.outputs.test2 }}
+
     steps:
       - id: step1
         run: echo "test1=kamalpunn hello $(date)" >> "$GITHUB_OUTPUT"
