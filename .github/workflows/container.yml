@@ -24,7 +24,7 @@ jobs:
       - name: show bridge network
         run: docker network ls
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo Hello, world ${{ GITHUB_REF }} !"
       - name: create a bridge network
         run: |
           docker network create -d bridge mynet
