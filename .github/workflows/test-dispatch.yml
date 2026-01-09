@@ -32,7 +32,22 @@ on:
 jobs:
   build-job:
     runs-on: ubuntu-latest
+    outputs:
+        output1: ${{ steps.step1.outputs.test1 }}
+        output2: ${{ steps.step2.outputs.test2 }}
     steps:
+      - id: step1
+        run: echo "test1=kamalpunn hello $(date)" >> "$GITHUB_OUTPUT"
+      - id: step2
+        run: echo "test2=alkapunn hello world $(date)" >> "$GITHUB_OUTPUT"
+
+      - name: Get Random Number
+        id: set-random-number
+        uses: ./.github/actions/random-number-action
+      - name: Display Random Number
+        #run: echo "Random Number: ${{ steps.set-random-number.outputs.random-number }}"
+        run: echo "Random Number: ${{ steps.set-random-number.outputs.random-number }}"
+
       - name: show bridge network
         run: |
           echo "Deploying to environment: ${{ inputs.env_choice }}"
@@ -79,3 +94,11 @@ jobs:
     #    name: kamal
     #    age: 56
     #    salary: nothing
+  using-output:
+    runs-on: ubuntu-latest
+    needs: build-job
+    steps:
+      - name: printing value from build-job"
+        run: |
+          echo "output1: ${{needs.build-job.output.output1}}"
+          echo "output2: ${{needs.build-job.output.output2}}"
