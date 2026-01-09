@@ -40,14 +40,6 @@ jobs:
         run: echo "test1=kamalpunn hello $(date)" >> "$GITHUB_OUTPUT"
       - id: step2
         run: echo "test2=alkapunn hello world $(date)" >> "$GITHUB_OUTPUT"
-
-      - name: Get Random Number
-        id: set-random-number
-        uses: ./.github/actions/random-number-action
-      - name: Display Random Number
-        #run: echo "Random Number: ${{ steps.set-random-number.outputs.random-number }}"
-        run: echo "Random Number: ${{ steps.set-random-number.outputs.random-number }}"
-
       - name: show bridge network
         run: |
           echo "Deploying to environment: ${{ inputs.env_choice }}"
