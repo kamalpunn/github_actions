@@ -25,6 +25,8 @@ jobs:
         run: docker network ls
       - name: Run a one-line script
         run: echo Hello, world $GITHUB_REF
+      - name: Run a one-line script
+        run: echo Hello, world $GITHUB_SHA
       - name: create a bridge network
         run: |
           docker network create -d bridge mynet
