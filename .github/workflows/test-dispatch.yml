@@ -1,0 +1,74 @@
+# This is a basic workflow to help you get started with Actions
+
+name: TEST DISPATCJ CI
+
+# Controls when the workflow will run
+on: 
+    workflow_dispatch:
+  # Triggers the workflow on push or pull request events but only for the "master" branch
+     inputs:
+      var1:
+        description: 'Name to greet'
+        required: true
+        default: 'World'
+        type: string
+      var2:
+        description: 'Include 🎉 emojis'
+        required: false
+        default: true
+        type: boolean
+      env_choice:
+        description: 'Select deployment environment'
+        type: choice
+        options:
+           - production
+           - staging
+           - development
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+      # Runs a single command using the runners shell
+    
+
+    steps:
+      - name: show bridge network
+        run: docker network ls
+      - name: Run a one-line script
+        run: echo Hello, world $GITHUB_REF
+      - name: Run a one-line script
+        run: echo Hello, world $GITHUB_SHA
+      - name: create a bridge network
+        run: |
+          docker network create -d bridge mynet
+          docker network ls
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+          df 
+          docker version
+          docker ps -a
+      - uses: actions/checkout@v4
+      - name: file listing after checkout
+        run: |
+          pwd
+          ls -ltr
+
+      - name: running another container in step
+        uses: docker://node:latest
+        with:
+          entrypoint: df
+          #args:  /bin
+      - name: finding docker processes
+        uses: docker://node:latest
+        with:
+          entrypoint: free
+          #args: -aef
+    #container: 
+    #  image: node:latest
+    #  env:
+    #    name: kamal
+    #    age: 56
+    #    salary: nothing
